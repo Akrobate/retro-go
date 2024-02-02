@@ -64,6 +64,30 @@ When a panic occurs, Retro-Go has the ability to save debugging information to `
 To resolve the backtrace you will need the application's elf file. If lost, you can recreate it by building the app again **using the same esp-idf and retro-go versions**. Then you can run `xtensa-esp32-elf-addr2line -ifCe app-name/build/app-name.elf`.
 
 
+## Building with docker with docker-compose
+If you don't want to install idf on your computer and prefer to work in an isolated environment you can use docker and docker-compose. In this case you'll just need to have docker and docker compose installed on your computer.
+
+By default the docker-compose.yml is setted on idf v5.0 but you can change it just by editing the docker-compose.yml file.
+
+To prepare the environment you'll have to run `docker-compose build` once. You'll have to run it again if you change the version of idf in docker-compose.yml file. Once done run `docker-compose run retro-go bash` it will open a new command line with all the idf framework setted up.
+
+Note: the docker-compose.yml is setted to work in privileged mode, that means that you'll have access to the /dev/tty* from inside. So you'll be able to use esptool.py to flash your device direclty from inside the docker container.
+
+```sh
+docker-compose build
+docker-compose run retro-go bash
+
+python rg_tool.py --target=esp32s3-devkit-c --no-networking build-img launcher retro-core
+esptool.py --baud 460800 --port /dev/ttyACM0 write_flash --flash_size detect 0x0 retro-go_unknown_esp32s3-devkit-c.img
+python rg_tool.py --port=/dev/ttyACM0 monitor
+
+# cleaning
+python rg_tool.py clean
+rm retro-go_unknown_esp32s3-devkit-c.img
+```
+
+
+
 ## Porting
 I don't want to maintain non-ESP32 ports in this repository but let me know if I can make small changes to make your own port easier! The absolute minimum requirements for Retro-Go are roughly:
 - Processor: 200Mhz 32bit little-endian

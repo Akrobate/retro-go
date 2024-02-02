@@ -1,0 +1,10 @@
+version: '3'
+services:
+  retro-go:
+    build:
+      context: ./
+      dockerfile: ./idf.Dockerfile
+      target: idf-v5.0   # also available idf-v4.3
+    privileged: true
+    volumes:
+      - ./:/app

@@ -249,7 +249,7 @@ static void lcd_init(void)
     gpio_set_level(RG_GPIO_LCD_RST, 0);
     rg_usleep(100 * 1000);
     gpio_set_level(RG_GPIO_LCD_RST, 1);
-    rg_usleep(10 * 1000);
+    rg_usleep(20 * 1000);
 #endif
 
     ILI9341_CMD(0x01);          // Reset

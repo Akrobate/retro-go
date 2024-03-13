@@ -603,4 +603,6 @@ void gui_load_preview(tab_t *tab)
         // gui_draw_status(tab);
         // tab->preview = gui_get_image("cover", file->app);
     }
+
+    gui_redraw();
 }

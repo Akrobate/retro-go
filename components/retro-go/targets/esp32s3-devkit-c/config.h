@@ -76,20 +76,22 @@
 
 // SPI Display (back up working)
 #define RG_GPIO_LCD_MISO            GPIO_NUM_NC
-#define RG_GPIO_LCD_MOSI            GPIO_NUM_12
-#define RG_GPIO_LCD_CLK             GPIO_NUM_48
+#define RG_GPIO_LCD_MOSI            GPIO_NUM_1 // GPIO_NUM_21 // GPIO_NUM_12
+#define RG_GPIO_LCD_CLK             GPIO_NUM_48 // GPIO_NUM_48
 #define RG_GPIO_LCD_CS              GPIO_NUM_NC
 #define RG_GPIO_LCD_DC              GPIO_NUM_47
-#define RG_GPIO_LCD_BCKL            GPIO_NUM_39
-#define RG_GPIO_LCD_RST             GPIO_NUM_3
+//#define RG_GPIO_LCD_BCKL            GPIO_NUM_42 // GPIO_NUM_39
+#define RG_GPIO_LCD_RST             GPIO_NUM_2 // GPIO_NUM_3
 
-#define RG_GPIO_SDSPI_MISO          GPIO_NUM_9
-#define RG_GPIO_SDSPI_MOSI          GPIO_NUM_11
-#define RG_GPIO_SDSPI_CLK           GPIO_NUM_13
-#define RG_GPIO_SDSPI_CS            GPIO_NUM_10
+
+#define RG_GPIO_SDSPI_MISO          GPIO_NUM_11  // GPIO_NUM_9
+#define RG_GPIO_SDSPI_MOSI          GPIO_NUM_13  // GPIO_NUM_11
+#define RG_GPIO_SDSPI_CLK           GPIO_NUM_12  // GPIO_NUM_13
+#define RG_GPIO_SDSPI_CS            GPIO_NUM_14  // GPIO_NUM_10
+
 
 // External I2S DAC
-#define RG_GPIO_SND_I2S_BCK         41
-#define RG_GPIO_SND_I2S_WS          42
-#define RG_GPIO_SND_I2S_DATA        40
+#define RG_GPIO_SND_I2S_BCK         GPIO_NUM_9 // 41
+#define RG_GPIO_SND_I2S_WS          GPIO_NUM_10 // 42
+#define RG_GPIO_SND_I2S_DATA        GPIO_NUM_3 // 40
 // #define RG_GPIO_SND_AMP_ENABLE      18
